@@ -1,248 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neon Store - Toko Joki & Item Game</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(circle at center, #000 60%, #030303);
-      color: #fff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background: linear-gradient(90deg, #0ff, #0f0, #f0f);
-      color: #000;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 1.5em;
-      text-shadow: 0 0 10px #0f0;
-      box-shadow: 0 0 20px #0f0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #0f0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: radial-gradient(circle, rgba(0,255,0,0.2) 0%, rgba(0,0,0,1) 100%);
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      color: #0f0;
-      text-shadow: 0 0 20px #0f0;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #fff;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #0f0; }
-      to { text-shadow: 0 0 30px #0f0, 0 0 60px #0ff; }
-    }
-
-    .btn {
-      background: #0f0;
-      color: #000;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 20px #0f0;
-    }
-
-    .btn:hover {
-      background: #0ff;
-      color: #000;
-      box-shadow: 0 0 30px #0ff;
-    }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 60px 20px;
-      gap: 30px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid #0f0;
-      border-radius: 15px;
-      width: 300px;
-      text-align: center;
-      padding: 20px;
-      transition: 0.4s;
-      box-shadow: 0 0 20px #0f0;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .card h3 {
-      color: #0f0;
-      margin-top: 15px;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #0ff;
-    }
-
-    .show {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      transition: 0.8s ease-in-out;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: linear-gradient(90deg, #f0f, #0ff, #0f0);
-      color: #000;
-      box-shadow: 0 0 30px #0f0;
-      margin-top: 40px;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50px;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 0 0 20px #25d366;
-      z-index: 100;
-      transition: 0.3s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px #0f0;
-    }
-
-    .whatsapp-float i {
-      margin-top: 15px;
-    }
-
-    audio {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2em; }
-      .products { flex-direction: column; align-items: center; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Store - Joki & Item Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <audio autoplay loop>
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kevin_MacLeod/Funkorama/Kevin_MacLeod_-_Funkorama.mp3" type="audio/mpeg">
-  </audio>
+  <canvas id="particles"></canvas>
 
   <header>
-    <div>TOKO JOKI & ITEM GAME</div>
+    <div class="logo">⚡ Neon Store ⚡</div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#produk">Produk</a>
-      <a href="#kontak">Kontak</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="harga.html">Harga</a>
+      <a href="testimoni.html">Testimoni</a>
     </nav>
+    <div class="controls">
+      <button id="theme-toggle">🌗</button>
+      <button id="music-toggle">🎵</button>
+    </div>
   </header>
 
-  <section class="hero" id="home">
-    <h1>⚡ NEON STORE ⚡</h1>
-    <p>Joki cepat, aman, dan terpercaya! Jual Fish It & Red Finger termurah 💎</p>
-    <button class="btn" onclick="scrollToSection('produk')">Lihat Produk</button>
+  <section class="hero">
+    <h1>Joki Cepat, Aman & Terpercaya</h1>
+    <p>Menjual Fish It & Red Finger dengan harga termurah 💎</p>
+    <a href="harga.html" class="btn">Lihat Daftar Harga</a>
   </section>
 
-  <section class="products" id="produk">
+  <section class="products">
     <div class="card">
-      <img src="https://via.placeholder.com/300x200?text=Fish+It" alt="Fish It" />
+      <img src="assets/fishit.jpg" alt="Fish It">
       <h3>Fish It</h3>
-      <p>Item game premium dengan harga bersahabat dan layanan cepat.</p>
-      <button class="btn">Beli Sekarang</button>
+      <p>Item premium, cepat & terpercaya!</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn">Pesan Sekarang</a>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/300x200?text=Red+Finger" alt="Red Finger" />
+      <img src="assets/redfinger.jpg" alt="Red Finger">
       <h3>Red Finger</h3>
-      <p>Solusi login 24 jam untuk game favoritmu! Aman & stabil.</p>
-      <button class="btn">Beli Sekarang</button>
+      <p>Akses login 24 jam, aman & efisien!</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn">Pesan Sekarang</a>
     </div>
   </section>
 
-  <footer id="kontak">
-    <p>Hubungi kami via WhatsApp untuk pemesanan & info lebih lanjut!</p>
-    <p>© 2025 Neon Store. All rights reserved.</p>
+  <footer>
+    <p>© 2025 Neon Store | Joki & Item Game</p>
   </footer>
 
-  <a href="https://wa.me/6281266435034" class="whatsapp-float" target="_blank">
-    <i>💬</i>
-  </a>
-
-  <script>
-    // Smooth scroll
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Scroll animation
-    const cards = document.querySelectorAll('.card');
-    window.addEventListener('scroll', () => {
-      cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < window.innerHeight - 100) {
-          card.classList.add('show');
-        }
-      });
-    });
-  </script>
+  <audio id="bg-music" src="assets/bg-music.mp3" loop></audio>
 </body>
-  </html>
+        </html>
